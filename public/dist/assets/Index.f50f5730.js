@@ -1,0 +1,1 @@
+import{d as e,o,a as r,b as s}from"./vendor.40cb4356.js";var a=e({setup(){console.log("Page - Index")}});const n=s("h1",{class:"text-red-800"},"Welcome",-1);a.render=function(e,s,a,t,d,l){return o(),r("div",null,[n])};export default a;
