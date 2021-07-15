@@ -8,6 +8,8 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Index');
+        return Inertia::render('Index', [
+            'darkMode' => (bool)random_int(0, 1),
+        ]);
     }
 }

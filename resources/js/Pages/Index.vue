@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-indigo-700">
+  <div :class="darkMode ? 'bg-gray-700' : 'bg-indigo-700'">
     <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
       <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
         <span class="block">Boost your productivity.</span>
@@ -17,6 +17,9 @@
 import { defineComponent } from "vue"
 
 export default defineComponent({
+  props: {
+    darkMode: Boolean,
+  },
   setup() {
     console.log("Page - Index")
   },
