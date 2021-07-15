@@ -8,18 +8,18 @@ return [
     |--------------------------------------------------------------------------
     |
      */
-    'users_table' => 'twill_users',
-    'password_resets_table' => 'twill_password_resets',
-    'users_oauth_table' => 'twill_users_oauth',
-    'blocks_table' => 'blocks',
-    'features_table' => 'features',
+    'users_table' => 'admin_users',
+    'password_resets_table' => 'admin_password_resets',
+    'users_oauth_table' => 'admin_users_oauth',
+    'blocks_table' => 'content_blocks',
+    'features_table' => 'content_features',
     'settings_table' => 'settings',
-    'medias_table' => 'medias',
-    'mediables_table' => 'mediables',
-    'files_table' => 'files',
-    'fileables_table' => 'fileables',
-    'related_table' => 'related',
-    'tags_table' => 'tags',
-    'tagged_table' => 'tagged',
+    'medias_table' => 'content_medias',
+    'mediables_table' => 'content_mediables',
+    'files_table' => 'content_files',
+    'fileables_table' => 'content_fileables',
+    'related_table' => 'content_related',
+    'tags_table' => 'content_tags',
+    'tagged_table' => 'content_tagged',
 
 ];
