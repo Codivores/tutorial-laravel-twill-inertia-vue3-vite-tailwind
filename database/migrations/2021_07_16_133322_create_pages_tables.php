@@ -8,20 +8,21 @@ class CreatePagesTables extends Migration
     public function up()
     {
         Schema::create('pages', function (Blueprint $table) {
-            // this will create an id, a "published" column, and soft delete and timestamps columns
             createDefaultTableFields($table);
-            
-            $table->integer('position')->unsigned()->nullable();
-            
-            // add those 2 columns to enable publication timeframe fields (you can use publish_start_date only if you don't need to provide the ability to specify an end date)
-            // $table->timestamp('publish_start_date')->nullable();
-            // $table->timestamp('publish_end_date')->nullable();
+        });
+
+        Schema::table('pages', function (Blueprint $table) {
+            $table->integer('position')->unsigned()->nullable()->after('id');
         });
 
         Schema::create('page_translations', function (Blueprint $table) {
             createDefaultTranslationsTableFields($table, 'page');
-            $table->string('title', 200)->nullable();
-            $table->text('description')->nullable();
+        });
+
+        Schema::table('page_translations', function (Blueprint $table) {
+            $table->string('title', 1000)->nullable()->after('page_id');
+            $table->string('meta_title', 100)->nullable()->after('title');
+            $table->text('meta_description', 200)->nullable()->after('meta_title');
         });
 
         Schema::create('page_slugs', function (Blueprint $table) {
