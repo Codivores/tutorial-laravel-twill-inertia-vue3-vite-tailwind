@@ -2,9 +2,15 @@
 
 return [
 
-    'pages' => [
-        'title' => 'Pages',
-        'module' => true,
+    'content' => [
+        'title' => 'Content',
+        'route' => 'admin.content.pages.index',
+        'primary_navigation' => [
+            'pages' => [
+                'title' => 'Pages',
+                'module' => true,
+            ],
+        ],
     ],
 
 ];
