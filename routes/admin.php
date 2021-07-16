@@ -2,5 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Register Twill routes here eg.
-Route::module('pages');
+Route::group(['prefix' => 'content'], function () {
+    Route::module('pages');
+});
