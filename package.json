@@ -8,5 +8,8 @@
         "axios": "^1.1.2",
         "laravel-vite-plugin": "^0.7.2",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "vue": "^3.2.47"
     }
 }
