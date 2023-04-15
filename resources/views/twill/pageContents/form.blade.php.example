@@ -1,0 +1,30 @@
+@extends('twill::layouts.form')
+
+@section('contentFields')
+    
+    <x-twill::block-editor
+        :withoutSeparator="true"
+        :blocks="[]"
+    />
+
+@stop
+
+@section('sideFieldsets')
+    @formFieldset([ 'id' => 'seo', 'title' => 'SEO'])
+
+        <x-twill::input
+            label="Title"
+            name="meta_title"
+            :translated="true"
+            :maxlength="100"
+        />
+
+        <x-twill::input
+            label="Description"
+            name="meta_description"
+            :translated="true"
+            :maxlength="200"
+        />
+
+    @endformFieldset
+@stop
