@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use A17\Twill\Facades\TwillNavigation;
 use A17\Twill\View\Components\Navigation\NavigationLink;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 
@@ -22,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Relation::enforceMorphMap([
+            'pageContent' => 'App\Models\PageContent',
+
+            'settingApp' => 'A17\Twill\Models\AppSetting',
+        ]);
+
         TwillNavigation::addLink(
             NavigationLink::make()
                 ->title(Str::ucfirst(__('content')))
