@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  item: object
+  item: Model.Page
 }
 
 defineProps<Props>()
