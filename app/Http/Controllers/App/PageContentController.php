@@ -18,7 +18,7 @@ class PageContentController extends Controller
         abort_if($item === null, Response::HTTP_NOT_FOUND);
 
         return Inertia::render('Page/Content', [
-            'item' => $item,
+            'item' => $item->only($item->publicAttributes),
         ]);
     }
 }
