@@ -33,4 +33,10 @@ class PageContent extends Model implements Sortable
     public $slugAttributes = [
         'title',
     ];
+
+    public array $publicAttributes = [
+        'title',
+        'meta_title',
+        'meta_description',
+    ];
 }
