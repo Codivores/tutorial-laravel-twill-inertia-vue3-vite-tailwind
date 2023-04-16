@@ -9,6 +9,7 @@ use A17\Twill\Repositories\Behaviors\HandleMedias;
 use A17\Twill\Repositories\Behaviors\HandleRevisions;
 use A17\Twill\Repositories\ModuleRepository;
 use App\Models\PageContent;
+use Illuminate\Support\Facades\Cache;
 
 class PageContentRepository extends ModuleRepository
 {
@@ -17,5 +18,15 @@ class PageContentRepository extends ModuleRepository
     public function __construct(PageContent $model)
     {
         $this->model = $model;
+    }
+
+    public function afterSave($object, $fields): void
+    {
+        // Cache clearing
+        foreach (optional($object)->slugs as $slug) {
+            Cache::forget('page.content.' . $slug->locale . '.' . $slug->slug);
+        }
+
+        parent::afterSave($object, $fields);
     }
 }
