@@ -4,6 +4,22 @@ import vue from '@vitejs/plugin-vue';
 import DefineOptions from 'unplugin-vue-define-options/vite';
 
 export default defineConfig({
+    resolve: {
+        alias: [
+          {
+            find: '@Composable',
+            replacement: '/resources/js/Composables'
+          },
+          {
+            find: "@Form",
+            replacement: `/resources/views/Components/Form`,
+          },
+          {
+            find: '@Theme',
+            replacement: '/resources/views/Components/Theme'
+          }
+        ]
+    },
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.ts'],

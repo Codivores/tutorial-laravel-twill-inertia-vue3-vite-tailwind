@@ -41,7 +41,10 @@
   
     "baseUrl": ".",
     "paths": {
-      "@/*": ["resources/*"]
+      "@/*": ["resources/*"],
+      "@Composable/*": ["resources/js/Composables/*"],
+      "@Form/*": ["resources/views/Components/Form/*"],
+      "@Theme/*": ["resources/views/Components/Theme/*"]
     },
     "include": [
       "resources/js/**/*.ts",
