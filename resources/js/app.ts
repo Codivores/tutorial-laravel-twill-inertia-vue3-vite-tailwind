@@ -8,6 +8,10 @@ createInertiaApp({
   resolve: async (name: string) => {
     let page = await resolvePageComponent(`../views/Pages/${name}.vue`, import.meta.glob<DefineComponent>('../views/Pages/**/*.vue'))
 
+    page = page.default
+
+    page.layout = (await import(`../views/Components/Layout/${page.layoutName || 'Default'}.vue`)).default
+
     return page
   },
   setup({ el, App, props, plugin }) {
