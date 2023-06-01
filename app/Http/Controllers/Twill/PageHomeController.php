@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Twill;
 use A17\Twill\Models\Contracts\TwillModelContract;
 use A17\Twill\Services\Forms\Fields\Input;
 use A17\Twill\Services\Forms\Form;
-use A17\Twill\Http\Controllers\Admin\SingletonModuleController as BaseModuleController;
 use A17\Twill\Services\Forms\Fields\BlockEditor;
 use A17\Twill\Services\Forms\Fieldset;
+use App\Http\Controllers\Twill\Base\SingletonModuleController as BaseModuleController;
 
 class PageHomeController extends BaseModuleController
 {
@@ -65,5 +65,12 @@ class PageHomeController extends BaseModuleController
         );
 
         return $form;
+    }
+
+    protected function previewData($item)
+    {
+        return $this->previewForInertia($item->only($item->publicAttributes), [
+            'page' => 'Page/Home',
+        ]);
     }
 }

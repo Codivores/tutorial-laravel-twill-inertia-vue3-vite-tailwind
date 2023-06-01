@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Twill;
 
-use A17\Twill\Http\Controllers\Admin\ModuleController as BaseModuleController;
 use A17\Twill\Models\Contracts\TwillModelContract;
 use A17\Twill\Services\Forms\Fields\BlockEditor;
 use A17\Twill\Services\Forms\Fields\Input;
 use A17\Twill\Services\Forms\Fieldset;
 use A17\Twill\Services\Forms\Form;
+use App\Http\Controllers\Twill\Base\ModuleController as BaseModuleController;
 
 class PageContentController extends BaseModuleController
 {
@@ -56,5 +56,12 @@ class PageContentController extends BaseModuleController
         );
 
         return $form;
+    }
+
+    protected function previewData($item)
+    {
+        return $this->previewForInertia($item->only($item->publicAttributes), [
+            'page' => 'Page/Content',
+        ]);
     }
 }
