@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
+import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
     resolve: {
@@ -41,6 +42,17 @@ export default defineConfig({
                     includeAbsolute: false,
                 },
             },
+        }),
+        AutoImport({
+            // targets to transform
+            include: [
+                /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+                /\.vue$/, /\.vue\?vue/, // .vue
+                /\.md$/, // .md
+            ],
+            imports: [
+                'vue',
+            ],
         }),
     ],
 });
