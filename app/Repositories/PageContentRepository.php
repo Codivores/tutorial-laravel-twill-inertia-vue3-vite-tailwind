@@ -22,7 +22,7 @@ class PageContentRepository extends ModuleRepository
 
     public function afterSave($object, $fields): void
     {
-        // Cache clearing
+        // Cache clearing.
         foreach (optional($object)->slugs as $slug) {
             Cache::forget('page.content.' . $slug->locale . '.' . $slug->slug);
         }
