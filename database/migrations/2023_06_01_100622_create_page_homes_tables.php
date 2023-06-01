@@ -9,18 +9,19 @@ class CreatePageHomesTables extends Migration
     public function up()
     {
         Schema::create('page_homes', function (Blueprint $table) {
-            // this will create an id, a "published" column, and soft delete and timestamps columns
-            createDefaultTableFields($table);
-            
-            // add those 2 columns to enable publication timeframe fields (you can use publish_start_date only if you don't need to provide the ability to specify an end date)
-            // $table->timestamp('publish_start_date')->nullable();
-            // $table->timestamp('publish_end_date')->nullable();
+            createDefaultTableFields($table, true, false);
         });
 
         Schema::create('page_home_translations', function (Blueprint $table) {
             createDefaultTranslationsTableFields($table, 'page_home');
-            $table->string('title', 200)->nullable();
-            $table->text('description')->nullable();
+        });
+
+        Schema::table('page_home_translations', function (Blueprint $table) {
+            $table->after('page_home_id', function ($table) {
+                $table->string('title', 200)->nullable();
+                $table->string('meta_title', 100)->nullable();
+                $table->text('meta_description', 200)->nullable();
+            });
         });
 
         Schema::create('page_home_revisions', function (Blueprint $table) {

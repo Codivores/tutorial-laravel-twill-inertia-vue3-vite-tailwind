@@ -21,14 +21,9 @@ class PageHomeSeeder extends Seeder
 
         app(PageHomeRepository::class)->create([
             'title' => [
-                'en' => 'PageHome',
-                // add other languages here
+                'en' => 'Home',
+                'fr' => 'Accueil',
             ],
-            'description' => [
-                'en' => '',
-                // add other languages here
-            ],
-            'published' => false,
         ]);
     }
 }

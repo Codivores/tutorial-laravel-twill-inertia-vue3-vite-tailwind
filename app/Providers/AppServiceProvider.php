@@ -15,7 +15,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
     }
 
     /**
@@ -23,12 +22,22 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->relationEnforceMorphMap();
+        $this->twillNavigation();
+    }
+
+    private function relationEnforceMorphMap()
+    {
         Relation::enforceMorphMap([
             'pageContent' => 'App\Models\PageContent',
+            'pageHome' => 'App\Models\PageHome',
 
             'settingApp' => 'A17\Twill\Models\AppSetting',
         ]);
+    }
 
+    private function twillNavigation()
+    {
         TwillNavigation::addLink(
             NavigationLink::make()
                 ->title(Str::ucfirst(__('content')))
@@ -36,8 +45,11 @@ class AppServiceProvider extends ServiceProvider
                 ->doNotAddSelfAsFirstChild()
                 ->setChildren([
                     NavigationLink::make()
+                        ->title(Str::ucfirst(__('home')))
+                        ->forSingleton('pageHome'),
+                    NavigationLink::make()
                         ->title(Str::ucfirst(__('pages')))
-                        ->forModule('pageContents')
+                        ->forModule('pageContents'),
                 ]),
         );
     }
