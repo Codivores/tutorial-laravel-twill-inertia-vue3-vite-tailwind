@@ -12,6 +12,7 @@
         "postcss": "^8.4.24",
         "tailwindcss": "^3.3.2",
         "typescript": "^5.0.4",
+        "unplugin-auto-import": "^0.16.4",
         "vite": "^4.3.9"
     },
     "dependencies": {
