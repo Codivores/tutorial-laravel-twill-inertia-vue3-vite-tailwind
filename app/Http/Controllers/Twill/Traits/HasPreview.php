@@ -8,6 +8,9 @@ trait HasPreview
 {
     protected function previewForInertia($item, array $config): array
     {
+        // Session reflash is needed for revisions comparison.
+        request()->session()->reflash();
+
         if (in_array('blocks', $config)) {
             $item->computeBlocks();
         }
