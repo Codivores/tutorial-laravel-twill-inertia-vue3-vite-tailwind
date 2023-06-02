@@ -21,6 +21,9 @@ class PreviewController extends ModuleController
 
     public function __invoke(Request $request): InertiaResponse
     {
+        // Session reflash is needed for revisions comparison.
+        $request->session()->reflash();
+
         abort_if(!$request->has('sessionKey'), Response::HTTP_NOT_FOUND);
 
         $sessionKey = $request->input('sessionKey');
