@@ -8,6 +8,7 @@ use A17\Twill\Services\Forms\Fields\Input;
 use A17\Twill\Services\Forms\Fieldset;
 use A17\Twill\Services\Forms\Form;
 use App\Http\Controllers\Twill\Base\ModuleController as BaseModuleController;
+use App\Models\Base\Model;
 
 class PageContentController extends BaseModuleController
 {
@@ -58,8 +59,14 @@ class PageContentController extends BaseModuleController
         return $form;
     }
 
+    /**
+     * @param Model $item
+     * @return array
+     */
     protected function previewData($item)
     {
+        $item->computeBlocks();
+
         return $this->previewForInertia($item->only($item->publicAttributes), [
             'page' => 'Page/Content',
         ]);
