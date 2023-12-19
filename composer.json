@@ -8,8 +8,8 @@
         "php": "^8.1",
         "area17/twill": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
-        "inertiajs/inertia-laravel": "^0.6.9",
-        "laravel/framework": "^10.0",
+        "inertiajs/inertia-laravel": "^0.6.11",
+        "laravel/framework": "^10.10",
         "laravel/tinker": "^2.8"
     },
     "require-dev": {
@@ -17,7 +17,7 @@
         "laravel/pint": "^1.0",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
-        "phpunit/phpunit": "^10.0",
+        "phpunit/phpunit": "^10.1",
         "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
