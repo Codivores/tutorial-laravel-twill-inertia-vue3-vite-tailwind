@@ -9,7 +9,7 @@ use A17\Twill\Models\Behaviors\HasMedias;
 use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Behaviors\HasPosition;
 use A17\Twill\Models\Behaviors\Sortable;
-use A17\Twill\Models\Model;
+use App\Models\Base\Model;
 
 class PageContent extends Model implements Sortable
 {
@@ -38,5 +38,6 @@ class PageContent extends Model implements Sortable
         'title',
         'meta_title',
         'meta_description',
+        'blocks',
     ];
 }
