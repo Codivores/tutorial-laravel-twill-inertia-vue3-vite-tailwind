@@ -42,6 +42,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["resources/*"],
+      "@Block/*": ["resources/views/Components/Theme/Blocks/*"],
       "@Composable/*": ["resources/js/Composables/*"],
       "@Form/*": ["resources/views/Components/Form/*"],
       "@Theme/*": ["resources/views/Components/Theme/*"]
