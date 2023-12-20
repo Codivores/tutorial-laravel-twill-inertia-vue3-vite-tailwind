@@ -3,6 +3,7 @@ declare namespace Model {
     title: string
     meta_title?: string
     meta_description?: string
+    blocks?: Array<Block> | null
   }
 
   export type Block = {
