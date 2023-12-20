@@ -36,6 +36,9 @@ class PageHomeController extends BaseModuleController
         $form->add(
             BlockEditor::make()
                 ->withoutSeparator()
+                ->blocks([
+                    'common-title',
+                ])
         );
 
         return $form;
