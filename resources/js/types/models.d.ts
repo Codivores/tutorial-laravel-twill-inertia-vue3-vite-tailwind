@@ -4,4 +4,11 @@ declare namespace Model {
     meta_title?: string
     meta_description?: string
   }
+
+  export type Block = {
+    editor_name: string
+    position: number
+    type: string
+    content: {} | null
+  }
 }
