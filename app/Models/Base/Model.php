@@ -57,6 +57,33 @@ class Model extends TwillModel
             $block->medias = $medias;
         }
 
+        // Handle browsers.
+        if (isset($block->content['browsers']) && is_array($block->content['browsers']) && count($block->content['browsers']) > 0) {
+            $blockContent = $block->content;
+            foreach ($blockContent['browsers'] as $moduleClass => $idList) {
+                if (is_array($idList) && count($idList) > 0) {
+                    $model = new (Relation::getMorphedModel($moduleClass));
+                    $relatedItems = [];
+                    foreach ($idList as $id) {
+                        $relatedItems[] = $model->find($id)->setHidden([
+                            'id',
+                            'position',
+                            'published',
+                            'active',
+                            'translations',
+                            'created_at',
+                            'updated_at',
+                            'deleted_at'
+                        ])->toArray();
+                    }
+                    $blockContent['browsers'][$moduleClass] = $relatedItems;
+                } else {
+                    $blockContent['browsers'][$moduleClass] = null;
+                }
+            }
+            $block->content = $blockContent;
+        }
+
         // Handle translated content inputs.
         if (is_array($block->content) && count($block->content) > 0) {
             $blockContent = $block->content;
