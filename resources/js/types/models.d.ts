@@ -11,5 +11,22 @@ declare namespace Model {
     position: number
     type: string
     content: {} | null
+    medias: {} | null
+  }
+
+  export type Media = {
+    alt?: string
+    caption?: string
+    height: number
+    src?: string
+    video?: string
+    width: number
+  }
+
+  export type MediaWithRoles = {
+    default?: Media
+    desktop?: Media
+    mobile?: Media
+    tablet?: Media
   }
 }
