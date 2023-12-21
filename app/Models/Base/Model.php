@@ -41,6 +41,22 @@ class Model extends TwillModel
 
     private function computeBlock($block, string $locale, string $fallbackLocale = null): array
     {
+        // Handle medias.
+        if (isset($block->medias) && count($block->medias) > 0) {
+            $medias = [];
+            $roles = $block
+                ->medias
+                ->unique('pivot.role')
+                ->pluck('pivot.role');
+
+            foreach ($roles as $role) {
+                $images = $block->imagesAsArraysWithCrops($role);
+                $medias[$role] = (is_array($images) && count($images) > 1) ? $images : reset($images);
+            }
+
+            $block->medias = $medias;
+        }
+
         // Handle translated content inputs.
         if (is_array($block->content) && count($block->content) > 0) {
             $blockContent = $block->content;
@@ -69,6 +85,7 @@ class Model extends TwillModel
                     'type',
                     'content',
                 ],
+                (count($block->medias) > 0) ? ['medias'] : [],
                 ($block->childs && count($block->childs) > 0) ? ['childs'] : []
             ]
         ));
