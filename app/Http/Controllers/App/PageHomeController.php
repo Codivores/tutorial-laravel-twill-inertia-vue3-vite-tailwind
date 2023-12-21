@@ -21,6 +21,7 @@ class PageHomeController extends Controller
 
                 if ($item !== null) {
                     $item->load('translations', 'blocks');
+                    $item->computeBlocks();
                 }
 
                 return $item;
