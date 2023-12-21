@@ -11,6 +11,7 @@ declare namespace Model {
     position: number
     type: string
     content: {} | null
+    childs: Array<Block> | null
     medias: {} | null
   }
 
