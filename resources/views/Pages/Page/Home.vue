@@ -14,6 +14,7 @@ const BlockCommonParagraph = defineAsyncComponent(() => import('@Block/Common/Pa
 const BlockCommonSeparator = defineAsyncComponent(() => import('@Block/Common/Separator.vue'))
 const BlockCommonText = defineAsyncComponent(() => import('@Block/Common/Text.vue'))
 const BlockCommonTitle = defineAsyncComponent(() => import('@Block/Common/Title.vue'))
+const BlockSandboxPricingTable = defineAsyncComponent(() => import('@Block/Sandbox/PricingTable.vue'))
 </script>
 
 <template>
@@ -52,6 +53,10 @@ const BlockCommonTitle = defineAsyncComponent(() => import('@Block/Common/Title.
         :block="block"
       ></BlockCommonTitle>
       <BlockCommonSeparator v-else-if="block.type == 'common-separator'"></BlockCommonSeparator>
+      <BlockSandboxPricingTable
+        v-if="block.type == 'sandbox-pricingtable'"
+        :block="block"
+      ></BlockSandboxPricingTable>
     </div>
   </div>
 </template>

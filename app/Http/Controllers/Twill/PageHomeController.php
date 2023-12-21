@@ -45,6 +45,7 @@ class PageHomeController extends BaseModuleController
                     'common-image',
                     'common-imageunconstrained',
                     'common-separator',
+                    'sandbox-pricingtable',
                 ])
         );
 
