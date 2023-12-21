@@ -40,6 +40,7 @@ class PageHomeController extends BaseModuleController
                 ->blocks([
                     'common-title',
                     'common-text',
+                    'common-paragraph',
                     'common-button',
                     'common-image',
                     'common-imageunconstrained',

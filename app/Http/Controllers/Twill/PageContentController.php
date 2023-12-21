@@ -31,9 +31,10 @@ class PageContentController extends BaseModuleController
                 ->blocks([
                     'common-title',
                     'common-text',
+                    'common-paragraph',
+                    'common-button',
                     'common-image',
                     'common-imageunconstrained',
-                    'common-button',
                     'common-separator',
                 ])
         );
