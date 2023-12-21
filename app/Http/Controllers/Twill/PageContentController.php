@@ -30,6 +30,7 @@ class PageContentController extends BaseModuleController
                 ->withoutSeparator()
                 ->blocks([
                     'common-title',
+                    'common-text',
                     'common-separator',
                 ])
         );

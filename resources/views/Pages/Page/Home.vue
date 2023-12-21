@@ -7,8 +7,9 @@ interface Props {
 
 defineProps<Props>()
 
-const BlockCommonTitle = defineAsyncComponent(() => import('@Block/Common/Title.vue'))
 const BlockCommonSeparator = defineAsyncComponent(() => import('@Block/Common/Separator.vue'))
+const BlockCommonText = defineAsyncComponent(() => import('@Block/Common/Text.vue'))
+const BlockCommonTitle = defineAsyncComponent(() => import('@Block/Common/Title.vue'))
 </script>
 
 <template>
@@ -22,6 +23,10 @@ const BlockCommonSeparator = defineAsyncComponent(() => import('@Block/Common/Se
       v-for="(block, index) in item.blocks"
       :key="index"
     >
+      <BlockCommonText
+        v-if="block.type == 'common-text'"
+        :block="block"
+      ></BlockCommonText>
       <BlockCommonTitle
         v-if="block.type == 'common-title'"
         :block="block"
