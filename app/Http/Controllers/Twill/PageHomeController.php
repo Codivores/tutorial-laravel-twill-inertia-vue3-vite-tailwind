@@ -38,6 +38,7 @@ class PageHomeController extends BaseModuleController
                 ->withoutSeparator()
                 ->blocks([
                     'common-title',
+                    'common-separator',
                 ])
         );
 
