@@ -8,6 +8,7 @@ interface Props {
 defineProps<Props>()
 
 const BlockCommonButton = defineAsyncComponent(() => import('@Block/Common/Button.vue'))
+const BlockCommonImage = defineAsyncComponent(() => import('@Block/Common/Image.vue'))
 const BlockCommonSeparator = defineAsyncComponent(() => import('@Block/Common/Separator.vue'))
 const BlockCommonText = defineAsyncComponent(() => import('@Block/Common/Text.vue'))
 const BlockCommonTitle = defineAsyncComponent(() => import('@Block/Common/Title.vue'))
@@ -28,6 +29,10 @@ const BlockCommonTitle = defineAsyncComponent(() => import('@Block/Common/Title.
         v-if="block.type == 'common-text'"
         :block="block"
       ></BlockCommonText>
+      <BlockCommonImage
+        v-if="block.type == 'common-image'"
+        :block="block"
+      ></BlockCommonImage>
       <BlockCommonButton
         v-if="block.type == 'common-button'"
         :block="block"
