@@ -3,10 +3,17 @@
 namespace App\Models\Base;
 
 use A17\Twill\Models\Model as TwillModel;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
 
 class Model extends TwillModel
 {
+    public function computeActiveSlug(): void
+    {
+        $this->activeSlug = $this->getSlug();
+        $this->unsetRelation('slugs');
+    }
+
     public function computeBlocks(string $locale = null): void
     {
         $locale = $locale ?? app()->getLocale();
@@ -116,5 +123,27 @@ class Model extends TwillModel
                 ($block->childs && count($block->childs) > 0) ? ['childs'] : []
             ]
         ));
+    }
+
+    public function computeFiles(string $role = 'document'): void
+    {
+        $files = $this->filesList($role);
+
+        $this->unsetRelation('files');
+        $this->files = [
+            $role => $files,
+        ];
+    }
+
+    public function computeMedia(string $role = 'cover', array $params = []): void
+    {
+        $images = $this->imagesAsArraysWithCrops($role, $params);
+
+        $this->$role = (is_array($images) && count($images) > 0) ? reset($images) : null;
+    }
+
+    public function computeMedias(string $role = 'cover', array $params = []): void
+    {
+        $this->$role = $this->imagesAsArraysWithCrops($role, $params);
     }
 }
