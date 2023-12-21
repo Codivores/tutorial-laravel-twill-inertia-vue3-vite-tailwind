@@ -42,6 +42,7 @@ class PageHomeController extends BaseModuleController
                     'common-text',
                     'common-button',
                     'common-image',
+                    'common-imageunconstrained',
                     'common-separator',
                 ])
         );

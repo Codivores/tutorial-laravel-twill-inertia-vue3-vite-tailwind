@@ -9,6 +9,7 @@ defineProps<Props>()
 
 const BlockCommonButton = defineAsyncComponent(() => import('@Block/Common/Button.vue'))
 const BlockCommonImage = defineAsyncComponent(() => import('@Block/Common/Image.vue'))
+const BlockCommonImageUnconstrained = defineAsyncComponent(() => import('@Block/Common/ImageUnconstrained.vue'))
 const BlockCommonSeparator = defineAsyncComponent(() => import('@Block/Common/Separator.vue'))
 const BlockCommonText = defineAsyncComponent(() => import('@Block/Common/Text.vue'))
 const BlockCommonTitle = defineAsyncComponent(() => import('@Block/Common/Title.vue'))
@@ -33,6 +34,10 @@ const BlockCommonTitle = defineAsyncComponent(() => import('@Block/Common/Title.
         v-if="block.type == 'common-image'"
         :block="block"
       ></BlockCommonImage>
+      <BlockCommonImageUnconstrained
+        v-if="block.type == 'common-imageunconstrained'"
+        :block="block"
+      ></BlockCommonImageUnconstrained>
       <BlockCommonButton
         v-if="block.type == 'common-button'"
         :block="block"

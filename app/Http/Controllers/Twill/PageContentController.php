@@ -32,6 +32,7 @@ class PageContentController extends BaseModuleController
                     'common-title',
                     'common-text',
                     'common-image',
+                    'common-imageunconstrained',
                     'common-button',
                     'common-separator',
                 ])
